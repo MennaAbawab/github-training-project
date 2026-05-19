@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("GitHub Training Project"),
         centerTitle: true,
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
         elevation: 2,
       ),
