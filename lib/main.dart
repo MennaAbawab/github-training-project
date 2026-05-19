@@ -51,47 +51,94 @@ class HomePage extends StatelessWidget {
               itemCount: items.length,
               itemBuilder: (context, index) {
                 return Container(
-                  margin: const EdgeInsets.only(bottom: 12),
+                  margin: const EdgeInsets.only(bottom: 14),
+
                   decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
                     gradient: LinearGradient(
                       colors: [
                         Colors.deepPurple.shade50,
-                        Colors.deepPurple.shade100,
+                        Colors.white,
                       ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
-                    borderRadius: BorderRadius.circular(16),
                     boxShadow: const [
                       BoxShadow(
                         color: Colors.black12,
-                        blurRadius: 8,
-                        offset: Offset(0, 4),
+                        blurRadius: 10,
+                        offset: Offset(0, 5),
                       )
                     ],
                   ),
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.all(16),
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.deepPurple,
-                      child: Text(
-                        items[index]["title"]![0],
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    title: Text(
-                      items[index]["title"]!,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colors.deepPurple,
-                      ),
-                    ),
-                    subtitle: Text(
-                      items[index]["subtitle"]!,
-                    ),
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 18,
-                      color: Colors.deepPurple,
+
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+
+                    child: Row(
+                      children: [
+
+                        // 🔵 Icon Section
+                        Container(
+                          height: 55,
+                          width: 55,
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                            child: Text(
+                              items[index]["title"]![0],
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(width: 15),
+
+                        // 📝 Text Section
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                items[index]["title"]!,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.deepPurple,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                items[index]["subtitle"]!,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        // 🔘 Action Button
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_forward_ios,
+                                size: 16,
+                                color: Colors.white),
+                            onPressed: () {},
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 );
